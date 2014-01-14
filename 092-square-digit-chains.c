@@ -35,17 +35,12 @@ square(int n)
 int
 sum_of_digit_squares(int n)
 {
-  char digits[10];
-  char *c = digits;
   int sum = 0;
 
-  sprintf(digits, "%d", n);
-
-  while (*c) {
-    sum += square(*c-'0');
-    c++;
+  while (n > 0) {
+    sum += square(n % 10);
+    n /= 10;
   }
-
   return sum;
 }
 
